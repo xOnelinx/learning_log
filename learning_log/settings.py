@@ -121,8 +121,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+
 
 STATIC_URL = '/static/'
 # Мои настройки
@@ -141,11 +140,13 @@ if os.getcwd() == '/app':
     # Поддержка заголовка 'X-Forwarded-Proto' для request.is_secure().
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
      # Разрешены все заголовки хостов.
-    ALLOWED_HOSTS = ['*']
+    # Хостом проекта может быть только Heroku.
+    ALLOWED_HOSTS = ['learning-log.herokuapp.com']
+    DEBUG = False
 
     # Конфигурация статических ресурсов
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    STATIC_ROOT = 'staticfiles'
+    PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+    STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
     STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
     )
