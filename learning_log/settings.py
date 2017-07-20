@@ -142,7 +142,7 @@ if os.getcwd() == '/app':
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
      # Разрешены все заголовки хостов.
     # Хостом проекта может быть только Heroku.
-    ALLOWED_HOSTS = ['learning-log.herokuapp.com']
+    ALLOWED_HOSTS = ['nameless-sea-37842.herokuapp.com']
     DEBUG = False
 
     # Конфигурация статических ресурсов
